@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07_面试题2</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+   说说它们的输出情况
+   */
+
+  function fun(n, o) {
+    console.log(o)
+    return {
+      fun: function (m) {
+        return fun(m, n)
+      }
+    }
+  }
+  var a = fun(0)
+  a.fun(1) //0 内部函数引用了外部函数的变量，产生了闭包，n=0被保存下来
+  a.fun(2) //0 还是原来的闭包对象，不是上一步产生的闭包对象，其所在的对象来调用的
+  a.fun(3) //undefined,?,?,?
+
+  var b = fun(0).fun(1).fun(2).fun(3) //undefined,?,?,?
+
+  var c = fun(0).fun(1)
+  c.fun(2)
+  c.fun(3) //undefined,?,?,?
+
+</script>
+</body>
+</html>

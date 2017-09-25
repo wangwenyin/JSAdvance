@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_对象3_面试题</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  var a = {}
+  var obj1 = {n: 2}
+  var obj2 = {m: 3}
+  a[obj1] = 4
+  a[obj2] = 5//所以本质是覆盖
+  console.log(obj1.toString());//对象转换为字符串后是这样[object Object]
+  console.log(a); //因为对象的属性名本质上是字符串类型，将一个对象作为属性名，会被转化为字符串
+  console.log(a[obj1]) // 输出多少?
+</script>
+</body>
+</html>
